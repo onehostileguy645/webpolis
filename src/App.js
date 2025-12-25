@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import CalcPage from "./mainPages/calcpage.js";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from "./mainPages/Footer/footer.js";
+import InfoPage from "./mainPages/infopage.js";
+import Header from "./mainPages/Header/header.js";
+import ContactsPage from "./mainPages/Contacts/contacrs.js";
+import LoginPage from "./mainPages/login.js";
+import Dashboard from "./insuranceDashboard/insuranceDashboard.js";
+import AffiliatePage from "./affiliatePage/affiliate.js";
+import HistoryPage from "./historyPage/history.js";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <div className="page-content">
+                <Routes>
+                    <Route path="/" element={<div><Header/><InfoPage/></div>} />
+                    <Route path="/calc" element={<div><Header/><CalcPage/></div>} />
+                    <Route path="/contacts" element={<div><Header/><ContactsPage/></div>} />
+                    <Route path="/login" element={<div><Header/><LoginPage/></div>} />
+                    <Route path="/dash" element={<div><Dashboard/></div>} />
+                    <Route path="/dash/affliate" element={<div><AffiliatePage/></div>} />
+                    <Route path="/dash/history" element={<div><HistoryPage/></div>} />
+                </Routes>
+                <Footer />
+            </div>
+        </BrowserRouter>
+    );
 }
 
-export default App;
+export default App

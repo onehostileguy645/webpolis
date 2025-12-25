@@ -1,0 +1,351 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #fafafa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Left Sidebar */
+.dashboard-sidebar {
+    width: 220px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    padding: 30px 0;
+}
+
+.sidebar-header {
+    padding: 0 25px 25px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.user-icon {
+    font-size: 20px;
+}
+
+.dashboard-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    padding: 12px 25px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #f5f5f5;
+    border-left: 3px solid #4CAF50;
+    transition: all 0.3s;
+}
+
+.nav-item-inactive {
+    padding: 12px 25px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav-item-inactive:hover {
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Main Content */
+.dashboard-main-content {
+    flex: 1;
+    padding: 40px 50px;
+    max-width: 900px;
+    margin-right: 360px;
+}
+
+.dashboard-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 30px 0;
+}
+
+/* Tabs */
+.dashboard-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dashboard-tab {
+    padding: 12px 20px;
+    border: none;
+    background-color: transparent;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.dashboard-tab:hover {
+    color: #333;
+}
+
+.dashboard-tab-active {
+    padding: 12px 20px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid #4CAF50;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.policy-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s;
+}
+
+.policy-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-color: #ccc;
+}
+
+.card-top {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.status-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.status-active {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-expired {
+    background-color: #999;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.type-badge {
+    background-color: #2196F3;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.policy-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.company-name {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+}
+
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-label {
+    font-size: 13px;
+    color: #666;
+}
+
+.info-value {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.info-value.active {
+    color: #4CAF50;
+}
+
+.info-value.expired {
+    color: #999;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Right Sidebar */
+.dashboard-right-sidebar {
+    width: 320px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-section:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.reminder-box {
+    padding: 15px;
+    background-color: #fff3e0;
+    border-radius: 6px;
+    border-left: 3px solid #FF9800;
+}
+
+.reminder-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e65100;
+    margin-bottom: 5px;
+}
+
+.reminder-sub {
+    font-size: 12px;
+    color: #ef6c00;
+}
+
+.empty-text {
+    color: #999;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .dashboard-right-sidebar {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 20px auto;
+        max-height: none;
+    }
+    
+    .dashboard-main-content {
+        max-width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-right-sidebar {
+        width: calc(100% - 40px);
+        margin: 20px;
+    }
+    
+    .dashboard-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 0;
+    }
+    
+    .dashboard-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0 15px;
+    }
+    
+    .nav-item,
+    .nav-item-inactive {
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .nav-item {
+        border-bottom: 3px solid #4CAF50;
+    }
+    
+    .dashboard-main-content {
+        padding: 30px 20px;
+    }
+    
+    .dashboard-tabs {
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard-title {
+        font-size: 22px;
+    }
+    
+    .policy-card {
+        padding: 15px;
+    }
+    
+    .dashboard-tab,
+    .dashboard-tab-active {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+}
