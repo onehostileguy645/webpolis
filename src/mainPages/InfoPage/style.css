@@ -1,0 +1,241 @@
+/* ============================
+   GLOBAL DESIGN TOKENS
+============================ */
+:root {
+    --primary: #2e7d32;
+    --primary-light: #4caf50;
+    --secondary: #1976d2;
+    --bg-main: #f6f8fb;
+    --bg-card: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-soft: #e5e7eb;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
+    --shadow-lg: 0 20px 45px rgba(0,0,0,0.12);
+
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ============================
+   BASE
+============================ */
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ============================
+   HERO SECTION
+============================ */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff, #f2f7f4);
+    padding: 60px 50px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 60px;
+}
+
+.hero-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.hero-button {
+    background: var(--primary);
+    color: white;
+    padding: 14px 36px;
+    border-radius: 50px;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.hero-button:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.hero-image {
+    width: 240px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================
+   HOW IT WORKS
+============================ */
+.how-it-works {
+    margin: 80px 0;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 35px;
+}
+
+.step-item {
+    background: white;
+    padding: 30px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: 0.3s;
+}
+
+.step-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.step-icon {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.step-label {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* ============================
+   INSURANCE CARDS
+============================ */
+.insurance-section {
+    margin: 80px 0;
+}
+
+.insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.insurance-card {
+    background: white;
+    padding: 35px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: 0.3s;
+}
+
+.insurance-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.card-list li {
+    margin: 8px 0;
+    color: #444;
+}
+
+/* ============================
+   PARTNERS
+============================ */
+.partners-section {
+    background: #f9fafb;
+    padding: 60px 40px;
+    border-radius: var(--radius-lg);
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.partner-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: 0.3s;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.partner-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-name {
+    font-weight: 600;
+}
+
+/* ============================
+   BUTTONS
+============================ */
+button,
+.submit-button,
+.continue-button {
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-image {
+        width: 200px;
+    }
+}

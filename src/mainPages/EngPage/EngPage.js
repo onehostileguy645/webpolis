@@ -1,6 +1,6 @@
 import React from "react";
 
-function EndPage({ selectedCompany, insuranceType }) {
+function EndPage({ selectedCompany, insuranceType, formData }) {
   return (
     <div className="end-page-container">
       <div className="end-page-box">
@@ -32,17 +32,41 @@ function EndPage({ selectedCompany, insuranceType }) {
         <h1 className="end-page-title">Заявка успешно отправлена!</h1>
 
         <p className="end-page-description">
-          Ваша заявка на оформление полиса {insuranceType} была успешно
-          обработана.
+          {formData?.resultMessage || "Ваша заявка на оформление полиса успешно обработана."}
         </p>
 
-        {selectedCompany && (
+        {/* Contract Information */}
+        {formData?.contractId && (
           <div className="selected-company-box">
+            <h3>Информация о договоре:</h3>
+            <div style={{ textAlign: "left", marginTop: "15px" }}>
+              <p style={{ marginBottom: "10px" }}>
+                <strong>Номер договора:</strong> {formData.contractId}
+              </p>
+              {formData.uuid && (
+                <p style={{ marginBottom: "10px", fontSize: "14px", color: "#666" }}>
+                  <strong>UUID:</strong> {formData.uuid}
+                </p>
+              )}
+              {formData.responseAmount && (
+                <p style={{ marginBottom: "10px", fontSize: "18px", color: "#4CAF50" }}>
+                  <strong>Сумма:</strong> {formData.responseAmount.toLocaleString()} сум
+                </p>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Selected Company Info */}
+        {selectedCompany && (
+          <div className="selected-company-box" style={{ marginTop: "20px" }}>
             <h3>Выбранная компания:</h3>
             <p className="company-name-display">{selectedCompany.name}</p>
-            <p className="company-price-display">
-              Стоимость: {selectedCompany.price}
-            </p>
+            {selectedCompany.price && (
+              <p className="company-price-display">
+                Стоимость: {selectedCompany.price}
+              </p>
+            )}
           </div>
         )}
 

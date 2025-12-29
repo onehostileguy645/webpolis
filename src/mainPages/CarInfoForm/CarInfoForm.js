@@ -5,11 +5,12 @@ function CarInfoForm({
   formData,
   setFormData,
   insuranceType,
-  selectedCompany,
   setCurrentStep,
+  setSelectedCompany
 }) {
   const [formStep, setFormStep] = useState(1);
-
+  const [localSelectedCompany, setLocalSelectedCompany] = useState(null);
+  const [company, setCompany] = useState({name: "", price: ""})
   const [vehicleInfoData, setVehicleInfoData] = useState({
     carBrand: "",
     color: "",
@@ -55,6 +56,45 @@ function CarInfoForm({
   const [userLoading, setUserLoading] = useState(false);
   const [driverLoading, setDriverLoading] = useState(false);
   const [submitLoading, setSubmitLoading] = useState(false);
+
+  // Insurance companies list
+  const companies = [
+    { 
+      id: 1, 
+      name: "Kafolat Sug'urta", 
+      logo: "🛡️",
+      personCoverage: "24 млн сум",
+      vehicleCoverage: "12 млн сум"
+    },
+    { 
+      id: 2, 
+      name: "O'zbekinvest Hayot", 
+      logo: "🏢",
+      personCoverage: "24 млн сум",
+      vehicleCoverage: "12 млн сум"
+    },
+    { 
+      id: 3, 
+      name: "Gross Sug'urta", 
+      logo: "🌟",
+      personCoverage: "24 млн сум",
+      vehicleCoverage: "12 млн сум"
+    },
+    { 
+      id: 4, 
+      name: "Uzbekinvest", 
+      logo: "💼",
+      personCoverage: "24 млн сум",
+      vehicleCoverage: "12 млн сум"
+    },
+    { 
+      id: 5, 
+      name: "Alfa Invest", 
+      logo: "🔷",
+      personCoverage: "24 млн сум",
+      vehicleCoverage: "12 млн сум"
+    },
+  ];
 
   const handleUserInfoChange = (field, value) => {
     setUserInfoData({ ...userInfoData, [field]: value });
@@ -150,13 +190,9 @@ function CarInfoForm({
       .toISOString()
       .split("T")[0];
 
-    // Премия зависит от типа страхования
+    // Premium amount based on insurance type
     const premiumAmount =
-      formData.insuranceVariant === "Безгранично"
-        ? 120000
-        : selectedCompany
-        ? parseInt(selectedCompany.price.replace(/[^\d]/g, ""))
-        : 40000;
+      formData.insuranceVariant === "Безгранично" ? 120000 : 40000;
 
     return {
       applicant: {
@@ -324,7 +360,7 @@ function CarInfoForm({
           address: result.division || "",
         });
 
-        setFormStep(2);
+        setFormStep(4);
       } else {
         alert("Данные автомобиля не найдены. Проверьте введенные данные.");
       }
@@ -375,8 +411,6 @@ function CarInfoForm({
           passportIssuePlace:
             result.passportIssuePlace || userInfoData.passportIssuePlace,
         });
-
-        setFormStep(3);
       } else {
         alert("Данные пользователя не найдены. Проверьте ID владельца.");
       }
@@ -398,6 +432,10 @@ function CarInfoForm({
     }
   };
 
+  const handleCompanySelect = (company) => {
+    setLocalSelectedCompany(company);
+  };
+
   const handleFinalSubmit = async () => {
     if (!userInfoData.number) {
       alert("Пожалуйста, введите номер телефона!");
@@ -417,8 +455,8 @@ function CarInfoForm({
     try {
       const insuranceData = prepareInsuranceData();
 
-      console.log("=== Submitting insurance data ===");
-      console.log(JSON.stringify(insuranceData, null, 2));
+      // console.log("=== Submitting insurance data ===");
+      // console.log(JSON.stringify(insuranceData, null, 2));
 
       const response = await axios.post(
         "http://localhost:5000/api/insurance/submit",
@@ -427,6 +465,9 @@ function CarInfoForm({
 
       console.log("=== Response from server ===");
       console.log(response.data);
+
+
+      setSelectedCompany({name: localSelectedCompany.name, price: response.data.data.amount})
 
       if (response.data.success !== false) {
         setCurrentStep(3);
@@ -460,110 +501,8 @@ function CarInfoForm({
       </p>
 
       <div className="form-white-box">
-        {/* STEP 1: Tech Passport Info */}
+        {/* STEP 1: Insurance Variant Selection */}
         {formStep === 1 && (
-          <>
-            <div className="form-section">
-              <h2 className="section-heading">Данные тех-паспорта</h2>
-              <div className="form-grid">
-                <div className="form-field">
-                  <label className="form-label">Номер Машины</label>
-                  <input
-                    className="form-input"
-                    placeholder="01A123BC"
-                    value={formData.plateNumber}
-                    onChange={(e) =>
-                      setFormData({ ...formData, plateNumber: e.target.value })
-                    }
-                  />
-                </div>
-                <div className="form-field">
-                  <label className="form-label">
-                    Серия и Номер Тех-Паспорта
-                  </label>
-                  <input
-                    className="form-input"
-                    placeholder="ADF0000000"
-                    value={formData.number}
-                    onChange={(e) =>
-                      setFormData({ ...formData, number: e.target.value })
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="buttons-flex-center" style={{ marginTop: "20px" }}>
-              <button
-                type="button"
-                onClick={() => setCurrentStep(2)}
-                className="back-button"
-              >
-                Назад
-              </button>
-              <button
-                type="button"
-                onClick={handleVehicleFetchData}
-                disabled={vehicleLoading}
-                className="submit-button"
-              >
-                {vehicleLoading ? "Загрузка..." : "Получить данные"}
-              </button>
-            </div>
-          </>
-        )}
-
-        {/* STEP 2: ID Card Details */}
-        {formStep === 2 && (
-          <>
-            <div className="form-section">
-              <h2 className="section-heading">Информация о владельце</h2>
-              <div className="form-grid">
-                <div className="form-field">
-                  <label className="form-label">ID Владельца</label>
-                  <input
-                    className="form-input"
-                    placeholder="AA0000000"
-                    value={userInfoData.idcard}
-                    onChange={(e) =>
-                      handleUserInfoChange("idcard", e.target.value)
-                    }
-                  />
-                </div>
-                <div className="form-field">
-                  <label className="form-label">ПИНФЛ (автоматически)</label>
-                  <input
-                    className="form-input"
-                    placeholder="12345678901234"
-                    value={userInfoData.pinfl}
-                    disabled
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="buttons-flex-center" style={{ marginTop: "20px" }}>
-              <button
-                type="button"
-                onClick={() => setFormStep(1)}
-                className="back-button"
-              >
-                Назад
-              </button>
-              <button
-                type="button"
-                onClick={handleUserFetchData}
-                disabled={userLoading}
-                className="submit-button"
-              >
-                {userLoading ? "Загрузка..." : "Проверить данные"}
-              </button>
-            </div>
-          </>
-        )}
-
-        {/* STEP 3: Insurance Variant Selection */}
-        {formStep === 3 && (
           <>
             <div className="form-section">
               <h2
@@ -602,6 +541,202 @@ function CarInfoForm({
                   <h2>5 или меньше водителей</h2>
                   <p>Ограниченное количество водителей (до 5 человек)</p>
                 </div>
+              </div>
+            </div>
+
+            <div className="buttons-flex-center" style={{ marginTop: "20px" }}>
+              <button
+                type="button"
+                onClick={() => setCurrentStep(2)}
+                className="back-button"
+              >
+                Назад
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (!formData.insuranceVariant) {
+                    alert("Пожалуйста, выберите вид страхования");
+                    return;
+                  }
+                  setFormStep(2);
+                }}
+                className="submit-button"
+              >
+                Далее
+              </button>
+            </div>
+          </>
+        )}
+
+        {/* STEP 2: Company Selection */}
+        {formStep === 2 && (
+          <>
+            <div className="form-section">
+              <h2
+                className="section-heading"
+                style={{ textAlign: "center", marginBottom: "30px" }}
+              >
+                Выберите страховую компанию
+              </h2>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+                {companies.map((company) => (
+                  <div
+                    key={company.id}
+                    onClick={() => handleCompanySelect(company)}
+                    className={`company-list-item ${
+                      localSelectedCompany?.id === company.id ? "selected" : ""
+                    }`}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "20px",
+                      border: "2px solid #e0e0e0",
+                      borderRadius: "10px",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      backgroundColor: localSelectedCompany?.id === company.id ? "#e8f5e9" : "#fff",
+                      borderColor: localSelectedCompany?.id === company.id ? "#4caf50" : "#e0e0e0"
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+                      <div style={{ fontSize: "32px" }}>{company.logo}</div>
+                      <div>
+                        <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                          {company.name}
+                        </h3>
+                      </div>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: "14px", color: "#666", marginBottom: "5px" }}>
+                        <strong>Для лица:</strong> {company.personCoverage}
+                      </div>
+                      <div style={{ fontSize: "14px", color: "#666" }}>
+                        <strong>Для ТС:</strong> {company.vehicleCoverage}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="buttons-flex-center" style={{ marginTop: "20px" }}>
+              <button
+                type="button"
+                onClick={() => setFormStep(1)}
+                className="back-button"
+              >
+                Назад
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (!localSelectedCompany) {
+                    alert("Пожалуйста, выберите страховую компанию");
+                    return;
+                  }
+                  setFormStep(3);
+                }}
+                className="submit-button"
+              >
+                Далее
+              </button>
+            </div>
+          </>
+        )}
+
+        {/* STEP 3: Tech Passport Info */}
+        {formStep === 3 && (
+          <>
+            <div className="form-section">
+              <h2 className="section-heading">Данные тех-паспорта</h2>
+              <div className="form-grid">
+                <div className="form-field">
+                  <label className="form-label">Номер Машины</label>
+                  <input
+                    className="form-input"
+                    placeholder="01A123BC"
+                    value={formData.plateNumber}
+                    onChange={(e) =>
+                      setFormData({ ...formData, plateNumber: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">
+                    Серия и Номер Тех-Паспорта
+                  </label>
+                  <input
+                    className="form-input"
+                    placeholder="ADF0000000"
+                    value={formData.number}
+                    onChange={(e) =>
+                      setFormData({ ...formData, number: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="buttons-flex-center" style={{ marginTop: "20px" }}>
+              <button
+                type="button"
+                onClick={() => setFormStep(2)}
+                className="back-button"
+              >
+                Назад
+              </button>
+              <button
+                type="button"
+                onClick={handleVehicleFetchData}
+                disabled={vehicleLoading}
+                className="submit-button"
+              >
+                {vehicleLoading ? "Загрузка..." : "Получить данные"}
+              </button>
+            </div>
+          </>
+        )}
+
+        {/* STEP 4: Owner Info + Drivers + Contact Info + Submit */}
+        {formStep === 4 && (
+          <>
+            <div className="form-section">
+              <h2 className="section-heading">Информация о владельце</h2>
+              <div className="form-grid">
+                <div className="form-field">
+                  <label className="form-label">ID Владельца</label>
+                  <input
+                    className="form-input"
+                    placeholder="AA0000000"
+                    value={userInfoData.idcard}
+                    onChange={(e) =>
+                      handleUserInfoChange("idcard", e.target.value)
+                    }
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">ПИНФЛ (автоматически)</label>
+                  <input
+                    className="form-input"
+                    placeholder="12345678901234"
+                    value={userInfoData.pinfl}
+                    disabled
+                  />
+                </div>
+              </div>
+              <div style={{ marginTop: "15px" }}>
+                <button
+                  type="button"
+                  onClick={handleUserFetchData}
+                  disabled={userLoading}
+                  className="submit-button"
+                  style={{ width: "auto", padding: "10px 30px" }}
+                >
+                  {userLoading ? "Загрузка..." : "Проверить данные"}
+                </button>
               </div>
             </div>
 
@@ -736,7 +871,7 @@ function CarInfoForm({
             <div className="buttons-flex-center">
               <button
                 type="button"
-                onClick={() => setFormStep(2)}
+                onClick={() => setFormStep(3)}
                 className="back-button"
               >
                 Назад

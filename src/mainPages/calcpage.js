@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EndPage from "./EngPage/EngPage.js";
 import CarInfoForm from "./CarInfoForm/CarInfoForm.js";
-import { InsuranceTypeSelector, CompanySelector } from "./InsuranceSelector/InsuranceSelector.js";
+import { InsuranceTypeSelector } from "./InsuranceSelector/InsuranceSelector.js";
 
 function CalcPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -28,20 +28,12 @@ function CalcPage() {
           formData={formData}
           setFormData={setFormData}
           insuranceType={selectedInsuranceType}
-          selectedCompany={selectedCompany}
           setCurrentStep={setCurrentStep}
+          setSelectedCompany={setSelectedCompany}
         />
       )}
 
       {currentStep === 3 && (
-        <CompanySelector
-          insuranceType={selectedInsuranceType}
-          setSelectedCompany={setSelectedCompany}
-          setCurrentStep={setCurrentStep}
-        />
-      )}
-
-      {currentStep === 4 && (
         <EndPage
           selectedCompany={selectedCompany}
           insuranceType={selectedInsuranceType}

@@ -1,3 +1,6 @@
+import "./style.css"
+
+
 function InfoPage() {
     const goToAboutPage = () => {
         window.location.href = '/calc';

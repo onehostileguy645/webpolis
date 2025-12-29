@@ -4,13 +4,13 @@ import "./index.css";
 import CalcPage from "./mainPages/calcpage.js";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from "./mainPages/Footer/footer.js";
-import InfoPage from "./mainPages/infopage.js";
 import Header from "./mainPages/Header/header.js";
 import ContactsPage from "./mainPages/Contacts/contacrs.js";
 import LoginPage from "./mainPages/login.js";
 import Dashboard from "./insuranceDashboard/insuranceDashboard.js";
 import AffiliatePage from "./affiliatePage/affiliate.js";
 import HistoryPage from "./historyPage/history.js";
+import InfoPage from "./mainPages/InfoPage/infopage.js";
 
 function App() {
     return (

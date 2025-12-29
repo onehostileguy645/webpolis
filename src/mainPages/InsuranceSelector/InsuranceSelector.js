@@ -60,77 +60,77 @@ export function InsuranceTypeSelector({ setSelectedInsuranceType, setCurrentStep
   );
 }
 
-export function CompanySelector({
-  insuranceType,
-  setSelectedCompany,
-  setCurrentStep,
-}) {
-  const [selected, setSelected] = useState({ name: "Кафолат Суғурта" });
+// export function CompanySelector({
+//   insuranceType,
+//   setSelectedCompany,
+//   setCurrentStep,
+// }) {
+//   const [selected, setSelected] = useState({ name: "Кафолат Суғурта" });
 
-  const companies = [
-    { name: "Кафолат Суғурта", rating: 4.6, price: "40,000 сум" },
-    {
-      name: "Узбекистон Темир Йуллари Суғурта",
-      rating: 4.5,
-      price: "50,000 сум",
-    },
-    { name: "Капитал Суғурта", rating: 4.8, price: "55,000 сум" },
-    { name: "Узбекистон Республика Суғурта", rating: 4.3, price: "60,000 сум" },
-  ];
+//   const companies = [
+//     { name: "Кафолат Суғурта", rating: 4.6, price: "40,000 сум" },
+//     {
+//       name: "Узбекистон Темир Йуллари Суғурта",
+//       rating: 4.5,
+//       price: "50,000 сум",
+//     },
+//     { name: "Капитал Суғурта", rating: 4.8, price: "55,000 сум" },
+//     { name: "Узбекистон Республика Суғурта", rating: 4.3, price: "60,000 сум" },
+//   ];
 
-  const handleNext = () => {
-    if (selected) {
-      setSelectedCompany(selected);
-      setCurrentStep(4);
-    }
-  };
+//   const handleNext = () => {
+//     if (selected) {
+//       setSelectedCompany(selected);
+//       setCurrentStep(4);
+//     }
+//   };
 
-  return (
-    <div className="company-selector-container">
-      <h1 className="company-selector-title">Выберите страховую компанию</h1>
-      <p className="company-selector-subtitle">
-        Тип страхования: <strong>{insuranceType}</strong>
-      </p>
+//   return (
+//     <div className="company-selector-container">
+//       <h1 className="company-selector-title">Выберите страховую компанию</h1>
+//       <p className="company-selector-subtitle">
+//         Тип страхования: <strong>{insuranceType}</strong>
+//       </p>
 
-      <div className="company-cards-grid">
-        {companies.map((company, index) => (
-          <div
-            key={index}
-            onClick={() => setSelected(company)}
-            className={`company-card-item ${
-              selected?.name === company.name ? "selected" : ""
-            }`}
-          >
-            <div className="company-card-content">
-              <div className="company-info">
-                <h3>{company.name}</h3>
-                <p>Рейтинг: {company.rating} ⭐</p>
-              </div>
-              <div className="company-price">
-                <p>{company.price}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+//       <div className="company-cards-grid">
+//         {companies.map((company, index) => (
+//           <div
+//             key={index}
+//             onClick={() => setSelected(company)}
+//             className={`company-card-item ${
+//               selected?.name === company.name ? "selected" : ""
+//             }`}
+//           >
+//             <div className="company-card-content">
+//               <div className="company-info">
+//                 <h3>{company.name}</h3>
+//                 <p>Рейтинг: {company.rating} ⭐</p>
+//               </div>
+//               <div className="company-price">
+//                 <p>{company.price}</p>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
 
-      <div className="buttons-flex-center">
-        <button
-          type="button"
-          onClick={() => setCurrentStep(4)}
-          className="back-button"
-        >
-          Назад
-        </button>
-        <button
-          type="button"
-          onClick={handleNext}
-          disabled={!selected}
-          className="continue-button"
-        >
-          Продолжить
-        </button>
-      </div>
-    </div>
-  );
-}
+//       <div className="buttons-flex-center">
+//         <button
+//           type="button"
+//           onClick={() => setCurrentStep(4)}
+//           className="back-button"
+//         >
+//           Назад
+//         </button>
+//         <button
+//           type="button"
+//           onClick={handleNext}
+//           disabled={!selected}
+//           className="continue-button"
+//         >
+//           Продолжить
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
