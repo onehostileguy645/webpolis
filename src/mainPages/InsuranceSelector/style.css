@@ -1,0 +1,184 @@
+/* Insurance Type Selector */
+.insurance-type-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.insurance-type-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #333;
+}
+
+.insurance-cards-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.insurance-card-selector {
+    width: 300px;
+    padding: 40px 30px;
+    background-color: white;
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.insurance-card-selector.selected-osago {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+.insurance-card-selector.selected-kasko {
+    background-color: #2196F3;
+    border-color: #2196F3;
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+}
+
+.insurance-card-selector h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.insurance-card-selector.selected-osago h2,
+.insurance-card-selector.selected-kasko h2 {
+    color: white;
+}
+
+.insurance-card-selector p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.insurance-card-selector.selected-osago p,
+.insurance-card-selector.selected-kasko p {
+    color: white;
+}
+
+.button-container-center {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.continue-button {
+    padding: 15px 50px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.continue-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.continue-button:hover:not(:disabled) {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Company Selector */
+.company-selector-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.company-selector-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 32px;
+    color: #333;
+}
+
+.company-selector-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.company-cards-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.company-card-item {
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.company-card-item.selected {
+    background-color: #e3f2fd;
+    border-color: #2196F3;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+}
+
+.company-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.company-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.company-info p {
+    font-size: 16px;
+    color: #666;
+}
+
+.company-price {
+    text-align: right;
+}
+
+.company-price p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.buttons-flex-center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.back-button {
+    padding: 15px 40px;
+    font-size: 18px;
+    background-color: white;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: #f5f5f5;
+}

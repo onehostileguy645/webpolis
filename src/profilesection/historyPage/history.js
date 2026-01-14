@@ -112,7 +112,7 @@ function HistoryPage() {
                     <a href="/dash" className="nav-item-inactive">Мои документы</a>
                     <a href="/dash/affliate" className="nav-item-inactive">Партнерская программа</a>
                     <a href="/dash/history" className="nav-item">История</a>
-                    <a href="#" className="nav-item-inactive">Настройки</a>
+                    <a href="/dash/settings" className="nav-item-inactive">Настройки</a>
                 </nav>
             </div>
 

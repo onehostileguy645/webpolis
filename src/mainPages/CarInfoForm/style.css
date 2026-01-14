@@ -1,0 +1,350 @@
+
+.car-info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.car-info-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 32px;
+    color: #333;
+}
+
+.car-info-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.form-white-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.form-input:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: white;
+    transition: border-color 0.3s;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.submit-button {
+    padding: 10px 30px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.submit-button:disabled:hover {
+    transform: none;
+    background-color: #ccc;
+}
+
+.insurance-cards-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.insurance-card-selector {
+    width: 300px;
+    padding: 40px 30px;
+    background-color: white;
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.insurance-card-selector.selected-osago {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+.insurance-card-selector.selected-kasko {
+    background-color: #2196F3;
+    border-color: #2196F3;
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+}
+
+.insurance-card-selector h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.insurance-card-selector.selected-osago h2,
+.insurance-card-selector.selected-kasko h2 {
+    color: white;
+}
+
+.insurance-card-selector p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.insurance-card-selector.selected-osago p,
+.insurance-card-selector.selected-kasko p {
+    color: white;
+}
+
+.buttons-flex-center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.back-button {
+    padding: 15px 40px;
+    font-size: 18px;
+    background-color: white;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: #f5f5f5;
+}
+
+.company-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.company-list-item.selected {
+    background-color: #e8f5e9;
+    border-color: #4caf50;
+}
+
+/* Driver Management Styles */
+.drivers-list-container {
+    margin-bottom: 25px;
+}
+
+.driver-card {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s;
+}
+
+.driver-card:hover {
+    border-color: #2196F3;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+}
+
+.driver-info {
+    flex: 1;
+}
+
+.driver-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.driver-details {
+    font-size: 14px;
+    color: #666;
+}
+
+.remove-driver-btn {
+    padding: 10px 20px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.2);
+}
+
+.remove-driver-btn:hover {
+    background: #d32f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.add-driver-btn {
+    padding: 12px 30px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(33, 150, 243, 0.2);
+}
+
+.add-driver-btn:hover {
+    background: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.add-driver-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.max-drivers-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.empty-drivers-message {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .driver-card {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .remove-driver-btn {
+        width: 100%;
+    }
+    
+    .driver-name {
+        font-size: 16px;
+    }
+    
+    .driver-details {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .driver-card {
+        padding: 12px 15px;
+    }
+    
+    .add-driver-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import './style.css'
 
 function CarInfoForm({
   formData,
@@ -192,7 +193,7 @@ function CarInfoForm({
 
     // Premium amount based on insurance type
     const premiumAmount =
-      formData.insuranceVariant === "Безгранично" ? 120000 : 40000;
+      formData.insuranceVariant === "Безгранично" ? 320000 : 160000;
 
     return {
       applicant: {
@@ -707,7 +708,7 @@ function CarInfoForm({
               <h2 className="section-heading">Информация о владельце</h2>
               <div className="form-grid">
                 <div className="form-field">
-                  <label className="form-label">ID Владельца</label>
+                  <label className="form-label">Серия и номер Паспорта</label>
                   <input
                     className="form-input"
                     placeholder="AA0000000"

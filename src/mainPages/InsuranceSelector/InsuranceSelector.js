@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './style.css'
 
 export function InsuranceTypeSelector({ setSelectedInsuranceType, setCurrentStep }) {
   const [selected, setSelected] = useState(null);

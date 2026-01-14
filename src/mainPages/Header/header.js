@@ -1,6 +1,7 @@
 // Header.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './style.css'
 
 function Header() {
     const [isLoginned, setIsLoginned] = useState(0);

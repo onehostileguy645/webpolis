@@ -6,11 +6,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from "./mainPages/Footer/footer.js";
 import Header from "./mainPages/Header/header.js";
 import ContactsPage from "./mainPages/Contacts/contacrs.js";
-import LoginPage from "./mainPages/login.js";
-import Dashboard from "./insuranceDashboard/insuranceDashboard.js";
-import AffiliatePage from "./affiliatePage/affiliate.js";
-import HistoryPage from "./historyPage/history.js";
+import LoginPage from "./login/login.js";
+import Dashboard from "./profilesection/insuranceDashboard/insuranceDashboard.js";
+import AffiliatePage from "./profilesection/affiliatePage/affiliate.js";
+import HistoryPage from "./profilesection/historyPage/history.js";
 import InfoPage from "./mainPages/InfoPage/infopage.js";
+import SettingsPage from "./profilesection/settingsPage/settings.js";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/dash" element={<div><Dashboard/></div>} />
                     <Route path="/dash/affliate" element={<div><AffiliatePage/></div>} />
                     <Route path="/dash/history" element={<div><HistoryPage/></div>} />
+                    <Route path="/dash/settings" element={<div><SettingsPage/></div>} />
                 </Routes>
                 <Footer />
             </div>

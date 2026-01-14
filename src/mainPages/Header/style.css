@@ -1,0 +1,80 @@
+/* Header Styles */
+.topBar {
+    padding: clamp(20px, 3vw, 30px);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: clamp(16px, 1.5vw, 20px);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topBar label {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #4CAF50;
+    background-clip: text;
+}
+
+.topBar ul {
+    display: flex;
+    gap: clamp(15px, 2vw, 25px);
+}
+
+.topBar ul li {
+    display: block;
+}
+
+.topBar ul li a {
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.topBar ul li a:hover {
+    color: #667eea;
+}
+
+.topBar button {
+    padding: clamp(12px, 1.5vw, 18px) clamp(20px, 2vw, 30px);
+    font-size: clamp(16px, 1.5vw, 20px);
+    border: none;
+    border-radius: 12px;
+    background: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.topBar button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 850px) {
+    .topBar {
+        width: 100%;
+        font-size: 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .topBar label {
+        font-size: 24px;
+    }
+
+    .topBar button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
