@@ -11,7 +11,6 @@ function CarInfoForm({
 }) {
   const [formStep, setFormStep] = useState(1);
   const [localSelectedCompany, setLocalSelectedCompany] = useState(null);
-  const [company, setCompany] = useState({name: "", price: ""})
   const [vehicleInfoData, setVehicleInfoData] = useState({
     carBrand: "",
     color: "",

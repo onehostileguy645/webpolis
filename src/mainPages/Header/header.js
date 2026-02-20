@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css'
 
 function Header() {
-    const [isLoginned, setIsLoginned] = useState(0);
+    const [isLoginned] = useState(0);
     const navigate = useNavigate();
 
     const handleLoginClick = () => {

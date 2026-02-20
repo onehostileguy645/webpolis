@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 function LoginPage() {
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin] = useState(true);
     const [formData, setFormData] = useState({
         number: '',
     });
