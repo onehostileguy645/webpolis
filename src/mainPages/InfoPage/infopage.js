@@ -126,23 +126,16 @@ function InsuranceTypes({ navigate }) {
                     <div class="service-cards">
 
                         <div class="service-card" id="auto-home">
-                            <div class="card-icon">🏠</div>
-                            <h3>Auto & Home</h3>
+                            <div class="card-icon">🚘</div>
+                            <h3>OSAGO</h3>
                             <p>Find great rates on auto and home insurance from top-rated companies tailored to your needs and budget.</p>
                             <a href="#quote" class="btn-green" >Get a Quote</a>
                         </div>
 
                         <div class="service-card" id="health">
-                            <div class="card-icon">🩺</div>
-                            <h3>Health Insurance</h3>
+                            <div class="card-icon">👨‍🏭</div>
+                            <h3>KASKO</h3>
                             <p>Get the best health coverage options tailored to your needs from leading providers you can trust.</p>
-                            <a href="#quote" class="btn-green">Get a Quote</a>
-                        </div>
-
-                        <div class="service-card" id="travel">
-                            <div class="card-icon">✈️</div>
-                            <h3>Travel Insurance</h3>
-                            <p>Secure travel insurance from leading providers, ensuring you are covered wherever your journey takes you.</p>
                             <a href="#quote" class="btn-green">Get a Quote</a>
                         </div>
 
