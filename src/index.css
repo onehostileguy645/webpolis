@@ -1,630 +1,520 @@
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    :root {
-        background-color: rgb(245, 245, 245);
-        /* Base font size for scaling */
-        font-size: 16px;
-        --primary-color: #333;
-        --success-color: #4CAF50;
-        --info-color: #2196F3;
-        --warning-color: #FF9800;
-        --background-light: #f5f5f5;
-        --shadow-sm: 0px 2px 8px rgba(0, 0, 0, 0.08);
-        --shadow-md: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        --shadow-lg: 0px 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    /* Adjust base font size for different screen sizes */
-    @media screen and (min-width: 1920px) {
-        :root {
-            font-size: 18px;
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        :root {
-            font-size: 20px;
-        }
-    }
-
-    @media screen and (max-width: 1440px) {
-        :root {
-            font-size: 15px;
-        }
-    }
-
-    @media screen and (max-width: 1024px) {
-        :root {
-            font-size: 14px;
-        }
-    }
-
-    a {
-        text-decoration: none;
-        color: #333;
-    }
-
-    body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    .infos{
-        min-height: 100vh;
-
-    }
-
-
-    .howitworks {
-        width: 100%;
-        margin-top: 60px;
-    }
-
-    .howitworks .column {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .howitworks hr {
-        width: 90%;
-        margin-bottom: 40px;
-        border: none;
-        height: 2px;
-        background: #eee;
-    }
-
-    .howitworks .row {
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
-        gap: 20px;
-    }
-
-    .howitworks .row .column {
-        flex: 1;
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        transition: 0.3s;
-    }
-
-    .howitworks .row .column:hover {
-        transform: translateY(-5px);
-    }
-
-    .howitworks img {
-        width: 200px;
-        margin-bottom: 15px;
-    }
-
-    .howitworks label {
-        font-size: 16px;
-        font-weight: 500;
-        color: #333;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .container {
-        margin-top: clamp(8%, 2.5vw, 30px);
-        display: flex;
-        font-size: clamp(20px, 2.5vw, 30px);
-        justify-content: space-around;
-        align-items: top;
-        padding: 0 clamp(20px, 5vw, 60px);
-    }
-
-    .information h1 {
-        font-weight: 700;
-        margin-bottom: clamp(15px, 2vw, 20px);
-        font-size: clamp(32px, 4vw, 48px);
-        color: #333;
-        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .information h4 {
-        font-weight: 400;
-        margin-bottom: clamp(25px, 3vw, 35px);
-        color: #333;
-        line-height: 1.6;
-    }
-
-    .information button {
-        padding: clamp(15px, 1.5vw, 20px) clamp(30px, 3vw, 40px);
-        font-size: clamp(16px, 1.5vw, 20px);
-        border: none;
-        border-radius: 12px;
-        background: #4CAF50;
-        color: #fff;
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-        font-weight: 600;
-        box-shadow: var(--shadow-md);
-    }
-
-    .information button:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .container img {
-        width: clamp(200px, 25vw, 400px);
-        max-width: 25%;
-        height: 25%;
-        border-radius: 20px;
-        box-shadow: var(--shadow-lg);
-    }
-
-    .calcContainer {
-        margin: clamp(40px, 5vw, 60px) auto;
-        width: min(95%, 800px);
-        background: #fff;
-        box-shadow: var(--shadow-lg);
-        border-radius: 24px;
-        overflow: hidden;
-        animation: fadeInUp 0.5s ease-out;
-    }
-
-
-    .calc {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(25px, 3vw, 35px);
-        padding: clamp(30px, 4vw, 45px);
-        background: #fff;
-    }
-
-    .calc > div {
-        background: #fff;
-        padding: clamp(20px, 2.5vw, 30px);
-        border-radius: 16px;
-        box-shadow: var(--shadow-sm);
-    }
-
-    .calcContainer .calc h2 {
-        font-weight: 600;
-        margin-bottom: clamp(12px, 1.5vw, 16px);
-        font-size: clamp(16px, 1.5vw, 20px);
-        color: #333;
-    }
-
-    .horizontal {
-        display: flex;
-        gap: clamp(15px, 2vw, 25px);
-        flex-wrap: wrap;
-    }
-
-    .horizontal > div {
-        flex: 1;
-        min-width: 200px;
-    }
-
-    .calcContainer .calc select {
-        padding: clamp(12px, 1.5vw, 16px);
-        border-radius: 10px;
-        border: 2px solid #e0e0e0;
-        font-size: clamp(14px, 1.2vw, 16px);
-        width: 100%;
-        cursor: pointer;
-        transition: border-color 0.3s;
-        background: #fff;
-    }
-
-    .calcContainer .calc select:focus {
-        outline: none;
-        border-color: #000;
-    }
-
-    .calcContainer input {
-        padding: clamp(12px, 1.5vw, 16px);
-        border-radius: 10px;
-        border: 2px solid #e0e0e0;
-        width: 100%;
-        font-size: clamp(14px, 1.2vw, 16px);
-        transition: border-color 0.3s, box-shadow 0.3s;
-        background: #fff;
-    }
-
-    .calcContainer input:focus {
-        outline: none;
-        border-color: #000;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    }
-
-    .calcContainer input::placeholder {
-        color: #999;
-    }
-
-    .calcContainer > button {
-        width: 100%;
-        height: clamp(70px, 8vw, 90px);
-        background: #000;
-        font-size: clamp(18px, 2vw, 24px);
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-
-
-
-    .app-container {
-        height: 100%;
-        margin: 0;
-    }
-
-    .page-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .column {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .row {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .column div {
-        justify-content: center;
-    }
-
-    .infoPage {
-        justify-content: center;
-        width: min(90%, 1200px);
-        max-width: 95%;
-        margin: clamp(40px, 5vw, 60px) auto;
-        border-radius: 24px;
-        padding: 0;
-        box-shadow: var(--shadow-lg);
-        background: #fff;
-        overflow: hidden;
-        animation: fadeInUp 0.5s ease-out;
-    }
-
-    @media screen and (min-width: 1920px) {
-        .infoPage {
-            width: min(85%, 1400px);
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .infoPage {
-            width: min(80%, 1600px);
-        }
-    }
-
-    .infoPage > .column {
-        padding: clamp(30px, 4vw, 50px);
-    }
-
-    .infoPage .row {
-        justify-content: space-between;
-        gap: clamp(20px, 3vw, 50px);
-        margin-bottom: clamp(25px, 3vw, 35px);
-        padding: clamp(20px, 2.5vw, 30px);
-        background: #fff;
-        border-radius: 16px;
-    }
-
-    @media screen and (min-width: 1920px) {
-        .infoPage .row {
-            gap: clamp(30px, 3vw, 60px);
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .infoPage .row {
-            gap: clamp(40px, 3vw, 70px);
-        }
-    }
-
-    .infoPage .row .column {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .infoPage .address {
-        width: 100%;
-    }
-
-    .infoPage input {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: clamp(12px, 1.5vw, 18px);
-        border-radius: 10px;
-        border: 2px solid #e0e0e0;
-        width: 100%;
-        font-size: clamp(14px, 1.2vw, 18px);
-        min-height: 50px;
-        transition: border-color 0.3s, box-shadow 0.3s;
-        background: #fff;
-    }
-
-    .infoPage input:focus {
-        outline: none;
-        border-color: #000;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    }
-
-    .infoPage input::placeholder {
-        color: #999;
-    }
-
-    @media screen and (min-width: 1920px) {
-        .infoPage input {
-            min-height: 55px;
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .infoPage input {
-            min-height: 60px;
-        }
-    }
-
-    .infoPage h3 {
-        font-weight: 600;
-        font-size: clamp(15px, 1.4vw, 20px);
-        margin-bottom: 5px;
-        color: #333;
-    }
-
-    @media screen and (min-width: 1920px) {
-        .infoPage h3 {
-            font-size: clamp(16px, 1.4vw, 22px);
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .infoPage h3 {
-            font-size: clamp(18px, 1.4vw, 24px);
-        }
-    }
-
-    .next {
-        background: #000;
-        color: #fff;
-        font-size: clamp(18px, 1.8vw, 24px);
-        width: 100%;
-        border: none;
-        margin: 0;
-        padding: clamp(18px, 2.5vw, 28px);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-
-
-
-    .companyPage {
-        margin: clamp(40px, 5vw, 60px) auto;
-        padding: 0 clamp(20px, 5vw, 60px);
-        width: 100%;
-        max-width: 1200px;
-    }
-
-    .companyPage .container {
-        width: 100%;
-        box-shadow: var(--shadow-lg);
-        border-radius: 24px;
-        background: #fff;
-        padding: clamp(30px, 4vw, 50px);
-        animation: fadeInUp 0.5s ease-out;
-    }
-
-    .companyPage h2 {
-        font-size: clamp(24px, 3vw, 36px);
-        font-weight: 700;
-        margin-bottom: clamp(25px, 3vw, 40px);
-        color: #333;
-        text-align: center;
-    }
-
-    .companyCard {
-        padding: clamp(20px, 2.5vw, 30px);
-        margin-bottom: clamp(15px, 2vw, 25px);
-        border: 2px solid #e0e0e0;
-        border-radius: 16px;
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    }
-
-    .companyCard:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-        border-color: #000;
-    }
-
-    .companyCard h3 {
-        margin-bottom: clamp(12px, 1.5vw, 18px);
-        font-size: clamp(18px, 2vw, 24px);
-        font-weight: 600;
-        color: #333;
-    }
-
-    .companyCard p {
-        font-size: clamp(14px, 1.5vw, 18px);
-        color: #666;
-        margin-bottom: clamp(12px, 1.5vw, 18px);
-    }
-
-    .companyCard button {
-        padding: clamp(12px, 1.5vw, 16px) clamp(25px, 3vw, 35px);
-        background: #000;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: clamp(14px, 1.3vw, 18px);
-        font-weight: 600;
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: var(--shadow-sm);
-    }
-
-    .companyCard button:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-
-    /* Tablet breakpoint */
-    @media screen and (max-width: 1350px) {
-        .calcContainer {
-            border-radius: 20px;
-            width: 95%;
-        }
-
-        .calc {
-            gap: 20px;
-        }
-
-        .horizontal {
-            flex-direction: column;
-        }
-    }
-
-    /* Medium tablet breakpoint */
-    @media screen and (max-width: 1024px) {
-        .companyPage {
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-        
-        body {
-            background: rgb(245, 245, 245);
-        }
-    }
-
-    /* Small tablet/large phone breakpoint */
-    @media screen and (max-width: 850px) {
-
-        .container {
-            text-align: center;
-            font-size: 20px;
-            display: block;
-            padding: 0 20px;
-        }
-
-        .container img {
-            display: none;
-        }
-
-        .information {
-            margin-top: clamp(50px, 20vw, 100px);
-        }
-        .howitworks hr{
-            margin-top: 70px;
-        }
-        .howitworks .row .column{
-            width: 100%;
-        }
-    }
-
-    /* Mobile breakpoint */
-    @media screen and (max-width: 768px) {
-        .infoPage {
-            border-radius: 20px;
-            width: 95%;
-        }
-        
-        .infoPage .row {
-            padding: 15px;
-        }
-
-        .row {
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .row div {
-            align-items: center;
-        }
-
-        .infoPage .address .column {
-            align-items: center;
-            width: 100%;
-        }
-
-        .calcContainer {
-            border-radius: 20px;
-        }
-    }
-
-    /* Small mobile breakpoint */
-    @media screen and (max-width: 480px) {
-        .calcContainer > button {
-            height: 65px;
-            font-size: 18px;
-        }
-    }
-
-    /* Very short screens */
-    @media screen and (max-height: 600px) {
-        .information {
-            margin-top: 20px;
-        }
-
-        .container {
-            margin-top: 20px;
-        }
-    }
-
-    /* ============================================ */
-    /* CalcPage Component Styles */
-    /* ============================================ */
-
-    /* Main Container */
-    .calc-page-container {
-        min-height: 100vh;
-        background-color: #f5f5f5;
-        padding: 20px;
-    }
-
-    
-
-
-    /* ============================================ */
-    /* InfoPage Landing Component Styles */
-    /* ============================================ */
-
-    /* Main Landing Container */
-    .landing-container {
-        font-family: 'Arial, sans-serif';
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    .divider {
-        border: none;
-        border-top: 2px solid #e0e0e0;
-        margin: 20px 0 40px 0;
-    }
+/* ═══════════════════════════════════════
+   GLOBAL STYLE.CSS
+   Matches Header / Footer / InfoPage palette
+═══════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+/* ── RESET ── */
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ── CSS VARIABLES ── */
+:root {
+  font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+
+  /* Brand */
+  --blue:           #0055b3;
+  --blue-dark:      #003d82;
+  --blue-light:     #e8f2ff;
+  --green:          #2e8b3a;
+  --green-hover:    #236b2c;
+
+  /* Text */
+  --text-dark:      #1a2638;
+  --text-mid:       #445570;
+  --text-light:     #7a90ab;
+
+  /* Surfaces */
+  --white:          #ffffff;
+  --gray-bg:        #f4f7fb;
+  --gray-border:    #d8e3f0;
+
+  /* Shadows */
+  --shadow-sm:      0 2px 12px rgba(0, 60, 160, 0.07);
+  --shadow-md:      0 6px 24px rgba(0, 60, 160, 0.12);
+  --shadow-lg:      0 12px 40px rgba(0, 60, 160, 0.16);
+
+  /* Kept for backward compat with existing components */
+  --primary-color:    #1a2638;
+  --success-color:    #2e8b3a;
+  --info-color:       #0055b3;
+  --warning-color:    #f59e0b;
+  --background-light: #f4f7fb;
+}
+
+/* ── FONT SCALING ── */
+@media screen and (min-width: 1920px) { :root { font-size: 18px; } }
+@media screen and (min-width: 2560px) { :root { font-size: 20px; } }
+@media screen and (max-width: 1440px) { :root { font-size: 15px; } }
+@media screen and (max-width: 1024px) { :root { font-size: 14px; } }
+
+/* ── BASE ── */
+html { background-color: var(--gray-bg); }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-dark);
+  background-color: var(--gray-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: color 0.18s;
+}
+
+a:hover { color: var(--blue); }
+
+/* ── APP SHELL ── */
+.app-container  { height: 100%; margin: 0; }
+.page-content   { flex: 1; display: flex; flex-direction: column; }
+.infos          { min-height: 100vh; }
+
+/* ── FLEX HELPERS ── */
+.column { display: flex; flex-direction: column; }
+.row    { display: flex; flex-direction: row; }
+.column div { justify-content: center; }
+
+/* ═══════════════════════════════════════
+   LANDING CONTAINER
+═══════════════════════════════════════ */
+.landing-container {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--white);
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid var(--gray-border);
+  margin: 20px 0 40px;
+}
+
+/* ═══════════════════════════════════════
+   HOW IT WORKS  (legacy class names kept)
+═══════════════════════════════════════ */
+.howitworks {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.howitworks .column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.howitworks hr {
+  width: 90%;
+  margin-bottom: 40px;
+  border: none;
+  height: 2px;
+  background: var(--gray-border);
+}
+
+.howitworks .row {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  gap: 20px;
+}
+
+.howitworks .row .column {
+  flex: 1;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--gray-border);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.howitworks .row .column:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.howitworks img {
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.howitworks label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* ═══════════════════════════════════════
+   HERO CONTAINER  (legacy)
+═══════════════════════════════════════ */
+.container {
+  margin-top: clamp(8%, 2.5vw, 30px);
+  display: flex;
+  font-size: clamp(20px, 2.5vw, 30px);
+  justify-content: space-around;
+  align-items: top;
+  padding: 0 clamp(20px, 5vw, 60px);
+}
+
+.information h1 {
+  font-weight: 900;
+  margin-bottom: clamp(15px, 2vw, 20px);
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--text-dark);
+}
+
+.information h4 {
+  font-weight: 600;
+  margin-bottom: clamp(25px, 3vw, 35px);
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+.information button {
+  padding: clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 40px);
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  border: none;
+  border-radius: 10px;
+  background: var(--green);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-md);
+}
+
+.information button:hover {
+  background: var(--green-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.container img {
+  width: clamp(200px, 25vw, 400px);
+  max-width: 25%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ═══════════════════════════════════════
+   CALC CONTAINER
+═══════════════════════════════════════ */
+.calcContainer {
+  margin: clamp(40px, 5vw, 60px) auto;
+  width: min(95%, 800px);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  border-radius: 20px;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 32px);
+  padding: clamp(28px, 4vw, 44px);
+  background: var(--white);
+}
+
+.calc > div {
+  background: var(--white);
+  padding: clamp(18px, 2.5vw, 28px);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--gray-border);
+}
+
+.calcContainer .calc h2 {
+  font-weight: 800;
+  margin-bottom: clamp(10px, 1.5vw, 14px);
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--text-dark);
+}
+
+.horizontal {
+  display: flex;
+  gap: clamp(14px, 2vw, 22px);
+  flex-wrap: wrap;
+}
+
+.horizontal > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Inputs & Selects */
+.calcContainer .calc select,
+.calcContainer input {
+  padding: clamp(11px, 1.4vw, 15px);
+  border-radius: 10px;
+  border: 2px solid var(--gray-border);
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-family: 'Nunito Sans', sans-serif;
+  width: 100%;
+  background: var(--white);
+  color: var(--text-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.calcContainer .calc select { cursor: pointer; }
+
+.calcContainer .calc select:focus,
+.calcContainer input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 85, 179, 0.12);
+}
+
+.calcContainer input::placeholder { color: var(--text-light); }
+
+.calcContainer > button {
+  width: 100%;
+  height: clamp(64px, 8vw, 88px);
+  background: var(--blue);
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.calcContainer > button:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════
+   INFO PAGE (form)
+═══════════════════════════════════════ */
+.infoPage {
+  width: min(90%, 1200px);
+  max-width: 95%;
+  margin: clamp(40px, 5vw, 60px) auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  background: var(--white);
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@media screen and (min-width: 1920px) { .infoPage { width: min(85%, 1400px); } }
+@media screen and (min-width: 2560px) { .infoPage { width: min(80%, 1600px); } }
+
+.infoPage > .column {
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.infoPage .row {
+  justify-content: space-between;
+  gap: clamp(18px, 3vw, 48px);
+  margin-bottom: clamp(20px, 3vw, 32px);
+  padding: clamp(18px, 2.5vw, 28px);
+  background: var(--gray-bg);
+  border-radius: 14px;
+  border: 1.5px solid var(--gray-border);
+}
+
+.infoPage .row .column { flex: 1; min-width: 0; }
+.infoPage .address     { width: 100%; }
+
+.infoPage input {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: clamp(11px, 1.5vw, 16px);
+  border-radius: 10px;
+  border: 2px solid var(--gray-border);
+  width: 100%;
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-family: 'Nunito Sans', sans-serif;
+  min-height: 48px;
+  background: var(--white);
+  color: var(--text-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.infoPage input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 85, 179, 0.12);
+}
+
+.infoPage input::placeholder { color: var(--text-light); }
+
+.infoPage h3 {
+  font-weight: 800;
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin-bottom: 4px;
+  color: var(--text-dark);
+}
+
+/* Next button */
+.next {
+  background: var(--blue);
+  color: var(--white);
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  width: 100%;
+  border: none;
+  padding: clamp(18px, 2.5vw, 26px);
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.next:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════
+   COMPANY PAGE
+═══════════════════════════════════════ */
+.companyPage {
+  margin: clamp(40px, 5vw, 60px) auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.companyPage .container {
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  border-radius: 20px;
+  background: var(--white);
+  padding: clamp(28px, 4vw, 48px);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.companyPage h2 {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 900;
+  margin-bottom: clamp(22px, 3vw, 38px);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.companyCard {
+  padding: clamp(18px, 2.5vw, 28px);
+  margin-bottom: clamp(14px, 2vw, 22px);
+  border: 2px solid var(--gray-border);
+  border-radius: 14px;
+  background: var(--white);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.companyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue);
+}
+
+.companyCard h3 {
+  margin-bottom: clamp(10px, 1.5vw, 16px);
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.companyCard p {
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: var(--text-mid);
+  margin-bottom: clamp(10px, 1.5vw, 16px);
+  line-height: 1.6;
+}
+
+.companyCard button {
+  padding: clamp(11px, 1.5vw, 15px) clamp(22px, 3vw, 32px);
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 800;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.companyCard button:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ═══════════════════════════════════════
+   CALC PAGE CONTAINER
+═══════════════════════════════════════ */
+.calc-page-container {
+  min-height: 100vh;
+  background-color: var(--gray-bg);
+  padding: 20px;
+}
+
+/* ═══════════════════════════════════════
+   ANIMATION
+═══════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media screen and (max-width: 1350px) {
+  .calcContainer { border-radius: 18px; width: 95%; }
+  .calc { gap: 18px; }
+  .horizontal { flex-direction: column; }
+}
+
+@media screen and (max-width: 1024px) {
+  .companyPage { padding-left: 5%; padding-right: 5%; }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    padding: 0 20px;
+  }
+  .container img { display: none; }
+  .information   { margin-top: clamp(40px, 18vw, 90px); }
+  .howitworks hr { margin-top: 60px; }
+  .howitworks .row .column { width: 100%; }
+}
+
+@media screen and (max-width: 768px) {
+  .infoPage { border-radius: 16px; width: 95%; }
+  .infoPage .row { padding: 14px; }
+  .row { flex-direction: column; gap: 10px; }
+  .row div { align-items: center; }
+  .infoPage .address .column { align-items: center; width: 100%; }
+  .calcContainer { border-radius: 16px; }
+}
+
+@media screen and (max-width: 480px) {
+  .calcContainer > button { height: 62px; font-size: 17px; }
+}
+
+@media screen and (max-height: 600px) {
+  .information { margin-top: 20px; }
+  .container   { margin-top: 20px; }
+}

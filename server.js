@@ -37,14 +37,6 @@ const KAFOLAT_PROXY_BASE = 'https://online.kafolat.uz/online/ins/osago/proxy';
 
 
 
-
-
-
-
-
-
-
-
 // Универсальный прокси endpoint
 app.post('/api/kafolat', async (req, res) => {
   try {
@@ -77,13 +69,6 @@ app.post('/api/kafolat', async (req, res) => {
     });
   }
 });
-
-
-
-
-
-
-
 
 
 
