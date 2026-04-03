@@ -10,7 +10,7 @@
     --blue-light: #e8f2ff;
     --green: #2e8b3a;
     --green-hover: #236b2c;
-    --gray-bg: #f4f7fb;
+    --gray-bg: #ffffff;
     --gray-border: #d8e3f0;
     --text-dark: #1a2638;
     --text-mid: #445570;
@@ -465,13 +465,13 @@
 }
 
 /* ═══════════════════════════════════════
-   PARTNERS
+   PARTNERS SECTION - DESKTOP
 ═══════════════════════════════════════ */
 .partners-section {
     background: var(--gray-bg);
     padding: 80px 80px;
 }
-
+ 
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -479,7 +479,7 @@
     max-width: 860px;
     margin: 0 auto;
 }
-
+ 
 .partner-card {
     background: var(--white);
     border-radius: var(--radius);
@@ -493,12 +493,12 @@
     transition: box-shadow .2s, transform .2s;
     cursor: pointer;
 }
-
+ 
 .partner-card:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-3px);
 }
-
+ 
 .partner-avatar {
     width: 44px;
     height: 44px;
@@ -512,14 +512,14 @@
     flex-shrink: 0;
     letter-spacing: .04em;
 }
-
+ 
 .partner-name {
     font-size: 0.9rem;
     font-weight: 800;
     color: var(--text-dark);
     flex: 1;
 }
-
+ 
 .partner-tag {
     font-size: 0.7rem;
     font-weight: 700;
@@ -621,11 +621,14 @@
     }
 }
 
+/* ═══════════════════════════════════════
+   SERVICES SECTION - DESKTOP FIRST
+═══════════════════════════════════════ */
 .services-section {
     background: var(--gray-bg);
     padding: 72px 32px;
 }
-
+ 
 .services-inner {
     max-width: 1180px;
     margin: 0 auto;
@@ -633,20 +636,20 @@
     grid-template-columns: 1fr 340px;
     gap: 36px;
 }
-
+ 
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     color: var(--text-dark);
     margin-bottom: 30px;
 }
-
+ 
 .service-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-
+ 
 .service-card {
     background: var(--white);
     border-radius: var(--radius);
@@ -658,13 +661,13 @@
     flex-direction: column;
     gap: 12px;
 }
-
+ 
 .service-card:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-4px);
     border-color: var(--blue);
 }
-
+ 
 .service-card .card-icon {
     width: 48px;
     height: 48px;
@@ -676,20 +679,20 @@
     font-size: 1.5rem;
     color: var(--blue);
 }
-
+ 
 .service-card h3 {
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--text-dark);
 }
-
+ 
 .service-card p {
     font-size: .875rem;
     color: var(--text-mid);
     line-height: 1.6;
     flex: 1;
 }
-
+ 
 .contact-panel {
     background: linear-gradient(160deg, #daeeff 0%, #b3d5f5 100%);
     border-radius: var(--radius);
@@ -703,7 +706,7 @@
     min-height: 320px;
     box-shadow: var(--shadow-md);
 }
-
+ 
 .contact-panel::after {
     content: '🧑‍💼';
     position: absolute;
@@ -712,21 +715,266 @@
     font-size: 8rem;
     opacity: .15;
 }
-
+ 
 .contact-panel h3 {
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--blue-dark);
 }
-
+ 
 .contact-panel .phone {
     font-size: 1.7rem;
     font-weight: 900;
     color: var(--blue-dark);
     letter-spacing: .03em;
 }
-
+ 
 .contact-panel p {
     font-size: .9rem;
     color: var(--text-mid);
+}
+
+/* ═══════════════════════════════════════
+   TABLET - 768px and below
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .services-section {
+        padding: 48px 24px;
+    }
+ 
+    .services-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+ 
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+    }
+ 
+    .service-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+ 
+    .service-card {
+        padding: 20px 16px;
+        gap: 10px;
+    }
+ 
+    .service-card h3 {
+        font-size: 1rem;
+    }
+ 
+    .service-card p {
+        font-size: .8rem;
+    }
+ 
+    .contact-panel {
+        padding: 28px 24px;
+        min-height: auto;
+        gap: 12px;
+    }
+ 
+    .contact-panel::after {
+        font-size: 6rem;
+        bottom: -5px;
+        right: -5px;
+    }
+ 
+    .contact-panel h3 {
+        font-size: 1.1rem;
+    }
+ 
+    .contact-panel .phone {
+        font-size: 1.5rem;
+    }
+ 
+    .contact-panel p {
+        font-size: .85rem;
+    }
+ 
+    .partners-section {
+        padding: 48px 24px;
+    }
+ 
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+ 
+    .partner-card {
+        padding: 18px 16px;
+    }
+ 
+    .partner-name {
+        font-size: 0.85rem;
+    }
+ 
+    .partner-tag {
+        font-size: 0.65rem;
+    }
+}
+ 
+/* ═══════════════════════════════════════
+   MOBILE - 480px and below
+═══════════════════════════════════════ */
+@media (max-width: 480px) {
+    .services-section {
+        padding: 32px 16px;
+    }
+ 
+    .services-inner {
+        gap: 20px;
+    }
+ 
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+ 
+    .service-cards {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+ 
+    .service-card {
+        padding: 18px 14px;
+        gap: 10px;
+    }
+ 
+    .service-card .card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+ 
+    .service-card h3 {
+        font-size: 0.95rem;
+    }
+ 
+    .service-card p {
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+ 
+    .btn-green {
+        padding: 10px 16px !important;
+        font-size: 0.85rem !important;
+    }
+ 
+    .contact-panel {
+        padding: 24px 20px;
+        min-height: auto;
+        gap: 10px;
+        border-radius: 12px;
+    }
+ 
+    .contact-panel::after {
+        font-size: 5rem;
+        bottom: -15px;
+        right: -15px;
+    }
+ 
+    .contact-panel h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+ 
+    .contact-panel .phone {
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+    }
+ 
+    .contact-panel p {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+ 
+    .btn-blue {
+        padding: 12px 16px !important;
+        font-size: 0.9rem !important;
+        width: 100%;
+    }
+ 
+    .partners-section {
+        padding: 32px 16px;
+    }
+ 
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+ 
+    .partner-card {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+ 
+    .partner-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+ 
+    .partner-name {
+        font-size: 0.8rem;
+    }
+ 
+    .partner-tag {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+ 
+    /* Better touch targets on mobile */
+    .btn-green,
+    .btn-blue {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+ 
+/* ═══════════════════════════════════════
+   SMALL PHONES - 375px and below
+═══════════════════════════════════════ */
+@media (max-width: 375px) {
+    .services-section {
+        padding: 24px 12px;
+    }
+ 
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+ 
+    .service-card {
+        padding: 16px 12px;
+    }
+ 
+    .service-card h3 {
+        font-size: 0.9rem;
+    }
+ 
+    .service-card p {
+        font-size: 0.7rem;
+    }
+ 
+    .contact-panel {
+        padding: 20px 16px;
+    }
+ 
+    .contact-panel .phone {
+        font-size: 1.3rem;
+    }
+ 
+    .partners-section {
+        padding: 24px 12px;
+    }
+ 
+    .partner-card {
+        padding: 14px 12px;
+        gap: 10px;
+    }
 }
