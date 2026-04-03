@@ -708,12 +708,17 @@
 }
  
 .contact-panel::after {
-    content: '🧑‍💼';
+    content: "";
     position: absolute;
-    bottom: -10px;
-    right: -10px;
-    font-size: 8rem;
-    opacity: .15;
+    inset: 0; /* вместо top/left/right/bottom */
+
+    background-image: url("call_centre.png");
+    background-size: cover;      /* растянуть на весь блок */
+    background-position: center; /* по центру */
+    background-repeat: no-repeat;
+
+    opacity: 0.1; /* прозрачность как у тебя */
+    z-index: 0;
 }
  
 .contact-panel h3 {
