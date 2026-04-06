@@ -3,9 +3,9 @@
   "outputDirectory": "build",
   "functions": {
     "api/**/*.js": {
-      "runtime": "nodejs18.x",
-      "memory": 1024,
-      "maxDuration": 30
+      "runtime": "nodejs20.x",
+      "maxDuration": 30,
+      "memory": 1024
     }
   }
 }
