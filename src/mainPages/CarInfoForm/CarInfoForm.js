@@ -113,7 +113,7 @@ function CarInfoForm({
     setDriverLoading(true);
 
     try {
-      const response = await axios.post("https://webpolis.vercel.app/api/kafolat", {
+      const response = await axios.post("https://webpolis10-ghpz6fxxv-onehostileguy645s-projects.vercel.app/api/kafolat", {
         path: "/api/provider/driver-summary-v2",
         data: {
           transactionId: String(
@@ -318,7 +318,7 @@ function CarInfoForm({
     setVehicleLoading(true);
 
     try {
-      const response = await axios.post("https://webpolis.vercel.app/api/kafolat", {
+      const response = await axios.post("https://webpolis10-ghpz6fxxv-onehostileguy645s-projects.vercel.app/api/kafolat", {
         path: "/api/provider/osago/vehicle",
         data: {
           techPassportSeria: formData.number.substring(0, 3),
@@ -383,7 +383,7 @@ function CarInfoForm({
     setUserLoading(true);
 
     try {
-      const response = await axios.post("https://webpolis.vercel.app/api/kafolat", {
+      const response = await axios.post("https://webpolis10-ghpz6fxxv-onehostileguy645s-projects.vercel.app/api/kafolat", {
         path: "/api/provider/pinfl-v2",
         data: {
           transactionId: String(
@@ -459,7 +459,7 @@ function CarInfoForm({
       // console.log(JSON.stringify(insuranceData, null, 2));
 
       const response = await axios.post(
-        "https://webpolis.vercel.app/api/insurance/submit",
+        "https://webpolis10-ghpz6fxxv-onehostileguy645s-projects.vercel.app/api/insurance/submit",
         insuranceData
       );
 
