@@ -1,5 +1,4 @@
 import axios from 'axios';
-import cors from 'cors';
 
 const KAFOLAT_AUTH = {
   username: 'TBOT',
@@ -8,15 +7,20 @@ const KAFOLAT_AUTH = {
 
 const KAFOLAT_PROXY_BASE = 'https://online.kafolat.uz/online/ins/osago/proxy';
 
-const corsMiddleware = cors();
+function setCorsHeaders(res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Max-Age', '86400');
+}
 
 export default async function handler(req, res) {
-  await new Promise((resolve, reject) => {
-    corsMiddleware(req, res, (result) => {
-      if (result instanceof Error) reject(result);
-      else resolve(result);
-    });
-  });
+  setCorsHeaders(res);
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -51,7 +55,6 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Calculation error:', error.message);
-    console.error('Details:', error.response?.data);
     
     res.status(error.response?.status || 500).json({
       success: false,

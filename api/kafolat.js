@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const KAFOLAT_AUTH = {
   username: 'TBOT',
@@ -7,7 +7,6 @@ const KAFOLAT_AUTH = {
 
 const KAFOLAT_PROXY_BASE = 'https://online.kafolat.uz/online/ins/osago/proxy';
 
-// Add CORS headers
 function setCorsHeaders(res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -15,11 +14,9 @@ function setCorsHeaders(res) {
   res.setHeader('Access-Control-Max-Age', '86400');
 }
 
-export default async function handler(req, res) {
-  // Set CORS headers
+module.exports = async function handler(req, res) {
   setCorsHeaders(res);
 
-  // Handle preflight requests
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
@@ -30,11 +27,21 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log('=== Received request ===');
+    console.log('Body:', JSON.stringify(req.body, null, 2));
+
     const { path, data } = req.body;
 
     if (!path) {
+      console.error('Missing path field');
       return res.status(400).json({ error: 'Поле "path" обязательно' });
     }
+
+    console.log('Sending to Kafolat:', {
+      url: KAFOLAT_PROXY_BASE,
+      path: path,
+      data: data
+    });
 
     const response = await axios.post(
       KAFOLAT_PROXY_BASE,
@@ -50,12 +57,19 @@ export default async function handler(req, res) {
       }
     );
 
+    console.log('Kafolat response:', response.data);
     res.json(response.data);
+    
   } catch (error) {
-    console.error('Kafolat error:', error.message);
+    console.error('=== ERROR ===');
+    console.error('Message:', error.message);
+    console.error('Status:', error.response?.status);
+    console.error('Response:', JSON.stringify(error.response?.data, null, 2));
+
     res.status(error.response?.status || 500).json({
       error: error.message,
-      details: error.response?.data || null
+      details: error.response?.data || null,
+      statusCode: error.response?.status
     });
   }
-}
+};
