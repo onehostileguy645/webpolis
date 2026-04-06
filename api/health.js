@@ -5,7 +5,7 @@ function setCorsHeaders(res) {
   res.setHeader('Access-Control-Max-Age', '86400');
 }
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   setCorsHeaders(res);
 
   if (req.method === 'OPTIONS') {
@@ -18,4 +18,4 @@ export default function handler(req, res) {
     timestamp: new Date().toISOString(),
     service: 'Kafolat Insurance Proxy'
   });
-}
+};

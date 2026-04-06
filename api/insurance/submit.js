@@ -1,20 +1,24 @@
-import axios from 'axios';
-import cors from 'cors';
+const axios = require('axios');
 
 const KAFOLAT_AUTH = {
   username: 'TBOT',
   password: 'dSDFGfgj@@$SDH2Fw'
 };
 
-const corsMiddleware = cors();
+function setCorsHeaders(res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Max-Age', '86400');
+}
 
-export default async function handler(req, res) {
-  await new Promise((resolve, reject) => {
-    corsMiddleware(req, res, (result) => {
-      if (result instanceof Error) reject(result);
-      else resolve(result);
-    });
-  });
+module.exports = async function handler(req, res) {
+  setCorsHeaders(res);
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -55,6 +59,7 @@ export default async function handler(req, res) {
     console.error('Message:', error.message);
     console.error('Status:', error.response?.status);
     console.error('Response data:', JSON.stringify(error.response?.data, null, 2));
+    console.error('Stack:', error.stack);
 
     res.status(error.response?.status || 500).json({
       success: false,
@@ -63,4 +68,4 @@ export default async function handler(req, res) {
       details: error.response?.data || null
     });
   }
-}
+};

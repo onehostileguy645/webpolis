@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const KAFOLAT_AUTH = {
   username: 'TBOT',
@@ -14,7 +14,7 @@ function setCorsHeaders(res) {
   res.setHeader('Access-Control-Max-Age', '86400');
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   setCorsHeaders(res);
 
   if (req.method === 'OPTIONS') {
@@ -55,6 +55,8 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Calculation error:', error.message);
+    console.error('Details:', error.response?.data);
+    console.error('Stack:', error.stack);
     
     res.status(error.response?.status || 500).json({
       success: false,
@@ -62,4 +64,4 @@ export default async function handler(req, res) {
       details: error.response?.data || null
     });
   }
-}
+};
